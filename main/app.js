@@ -13,13 +13,22 @@ var app = express();
 
 app.configure(function(){
 
+	//rather not telegraph what we're usingg
 	app.use(function (req, res, next) {
         res.removeHeader("X-Powered-By");
         next();
     }); 
 	
 	
-  app.set('port', process.env.PORT || 8080);
+	if(process.env.NODE_ENV == 'production'){
+		app.set('port', 8080);
+	}else{
+		app.set('port', 80);
+	}
+	
+  //app.set('port', process.env.PORT || 8080);
+  
+  
   app.set('views', __dirname + '/views');
   app.set('view engine', 'ejs');
   app.use(express.favicon());
