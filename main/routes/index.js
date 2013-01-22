@@ -21,16 +21,16 @@ var complete = function(req, res, code){
 		
 		if(header && body && footer)
 			res.send(html_minifier.minify(header + body + footer, {
-			//	collapseWhitespace: true,
-			//	removeComments: 	true
+				collapseWhitespace: true,
+				removeComments: 	true
 			}), code);
 			
 	}else{
 		//ajaxify request...
 		
 		res.send(html_minifier.minify(body, {
-		//	collapseWhitespace: true,
-		//	removeComments: 	true
+			collapseWhitespace: true,
+			removeComments: 	true
 		}), code);
 		
 	}
