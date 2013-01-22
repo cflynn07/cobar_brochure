@@ -51,7 +51,7 @@ app.configure('development', function(){
 //the four pages
 
 app.get('/', 			routes.index);
-app.get('/faq', 		routes.faq);
+app.get('/services', 	routes.services);
 app.get('/about', 		routes.about);
 app.get('/blog', 		routes.blog);
 app.get('/contact', 	routes.contact);

@@ -21,16 +21,16 @@ var complete = function(req, res, code){
 		
 		if(header && body && footer)
 			res.send(html_minifier.minify(header + body + footer, {
-				collapseWhitespace: true,
-				removeComments: 	true
+			//	collapseWhitespace: true,
+			//	removeComments: 	true
 			}), code);
 			
 	}else{
 		//ajaxify request...
 		
 		res.send(html_minifier.minify(body, {
-			collapseWhitespace: true,
-			removeComments: 	true
+		//	collapseWhitespace: true,
+		//	removeComments: 	true
 		}), code);
 		
 	}
@@ -63,33 +63,49 @@ var global = function(req, res){
 exports.index 		= function(req, res){
 
 	global(req, res);
-	body = ' - body - ';
-	complete(req, res);
+	res.render('view_index', {}, function(err, html){
+		body = html;
+		complete(req, res);
+	});
 	
 };
 
-exports.faq 		= function(req, res){	
+exports.services 		= function(req, res){	
+	
 	global(req, res);
-	body = ' - faq - ';
-	complete(req, res);
+	res.render('view_services', {}, function(err, html){
+		body = html;
+		complete(req, res);
+	});
+	
 };
 
 exports.about 		= function(req, res){	
+	
 	global(req, res);
-	body = ' - about - ';
-	complete(req, res);
+	res.render('view_about', {}, function(err, html){
+		body = html;
+		complete(req, res);
+	});
+	
 };
 
 exports.blog 		= function(req, res){
+	
 	global(req, res);
-	body = ' - blog - ';
-	complete(req, res);
+	res.render('view_blog', {}, function(err, html){
+		body = html;
+		complete(req, res);
+	});
+	
 };
 
 exports.contact 	= function(req, res){
 	global(req, res);
-	body = ' - contact - ';
-	complete(req, res);
+	res.render('view_contact', {}, function(err, html){
+		body = html;
+		complete(req, res);
+	});
 };
 
 exports.error		= function(req, res){

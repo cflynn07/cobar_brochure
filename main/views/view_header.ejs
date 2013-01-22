@@ -16,7 +16,7 @@
 
   <!-- CSS Style -->
   <link rel="stylesheet" href="/css/style.css"> 
-  
+
   <!-- Color Skins -->
   <link rel="stylesheet" href="/css/skins/orange.css" name="skins"> 
   
@@ -63,17 +63,22 @@
   <![endif]-->
 <% } %>
 
-
 <script data-main="js/app" src="js/libs/require.js"></script>
 
+
   <!-- Favicons -->
-  <link rel="shortcut icon" href="/images/favicon/favicon.ico">
-  <link rel="apple-touch-icon" href="/images/favicon/apple-touch-icon.png">
-  <link rel="apple-touch-icon" sizes="72x72" href="/images/favicon/apple-touch-icon-72x72.png">
-  <link rel="apple-touch-icon" sizes="114x114" href="/images/favicon/apple-touch-icon-114x114.png">
+  
+  <% if(false){ %>
+  
+	  <link rel="shortcut icon" href="/images/favicon/favicon.ico">
+	  <link rel="apple-touch-icon" href="/images/favicon/apple-touch-icon.png">
+	  <link rel="apple-touch-icon" sizes="72x72" href="/images/favicon/apple-touch-icon-72x72.png">
+	  <link rel="apple-touch-icon" sizes="114x114" href="/images/favicon/apple-touch-icon-114x114.png">
+  
+  <% } %>
 
 </head>
-<body>
+<body class="diagmonds">
 
   <div id="wrap" class="boxed">
 
@@ -93,17 +98,7 @@
           <ul id="nav">
             <li><a href="/">Home</a>
             </li>
-            <li><a href="javascript:void(0);">Services</a>
-              <ul>
-                <li><a href="/faq">FAQ</a></li>
-                
-               <% if(false){ %>
-	                <li><a href="features.html">Features</a></li>
-	                <li><a href="process.html">Process</a></li>
-	                <li><a href="FAQ.html">FAQ</a></li>
-               <% } %>
-               
-              </ul>
+            <li><a href="/services">Services</a>
             </li>
             <li><a href="/about">About Us</a>
             </li>
