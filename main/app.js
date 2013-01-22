@@ -23,7 +23,7 @@ app.configure(function(){
 	if(process.env.NODE_ENV == 'production'){
 		app.set('port', 8080);
 	}else{
-		app.set('port', 80);
+		app.set('port', 8080);
 	}
 	
   //app.set('port', process.env.PORT || 8080);
@@ -38,6 +38,8 @@ app.configure(function(){
   app.use(express.static(path.join(__dirname, 'public')));
   app.use(app.router);
  
+ 
+  
   
 });
 
@@ -47,12 +49,14 @@ app.configure('development', function(){
 
 
 //the four pages
+
 app.get('/', 			routes.index);
 app.get('/faq', 		routes.faq);
 app.get('/about', 		routes.about);
 app.get('/blog', 		routes.blog);
 app.get('/contact', 	routes.contact);
 app.get('*', 			routes.error);
+
 
 http.createServer(app).listen(app.get('port'), function(){
   console.log("Express server listening on port " + app.get('port'));
