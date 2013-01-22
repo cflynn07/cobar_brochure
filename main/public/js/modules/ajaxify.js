@@ -37,10 +37,10 @@ define(['jquery', 'history', 'modules/log'], function($, History, log){
 			},
 			success: function(data, textStatus, jqXHR){
 								
-				target.fadeOut('fast', function(){
+				target.slideUp('fast', function(){
 					
 					target.html(data);
-					target.fadeIn('fast', function(){
+					target.slideDown('fast', function(){
 						
 					});
 					
