@@ -1,0 +1,43 @@
+<div class="container clearfix">
+  
+    <div class="sixteen columns"> <h1 class="page-title">Features <span class="line"></span></h1> </div> <!-- Page Title -->
+  
+    <div id="description">
+      <div class="sixteen columns">
+        <div class="description bottom-2">
+        <p>
+           The only venue management system that integrates with Facebook to give you clean, trackable data and <span class="color2">&nbsp;virally&nbsp;</span> promote your venues, promoters, guest lists and events.
+        </p>
+        </div>
+      </div>
+    </div><!-- End description -->
+    
+    <div class="portfolio">
+    
+      <div class="gallery" id="contain"> 
+      
+      <% var count = 0; %>
+      <% for(var i in features) { %>
+      	<% var feature = features[i]; %>
+      	<div class="one-third column item element-3 Animation Web" data-categories="Animation Web">
+          <div class="caption">
+          <a href="/features/<%= i %>/">
+          	<img src="/images/features/<%= feature.image %>.png" alt="" class="pic" />
+          <span class="hover-effect link"></span></a>
+          </div><!-- hover effect -->
+          <h4><a class="color2" href="/features/<%= i %>/"><%= feature.title %></a></h4>
+          <p><%= feature.desc %></p>
+      	</div>
+      	
+      	<% count++;
+      	  if(count % 3 === 0){ %>
+      		<div class="clearfix"></div>
+      	<% } %>
+      	
+      <% } %>
+      
+	  </div>
+    </div>
+    
+
+  </div><!-- <<< End Container >>> -->
