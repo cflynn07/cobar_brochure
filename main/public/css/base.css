@@ -67,6 +67,7 @@ table {
 ================================================== */
 html {
 	-webkit-text-size-adjust: none;
+	overflow-y: scroll;
 }
 
 body {

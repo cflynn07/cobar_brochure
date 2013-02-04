@@ -4,6 +4,7 @@
  */
 
 //hey i changed
+//hi i'm casey
 
 var express = require('express')
   , routes 	= require('./routes')
@@ -15,13 +16,22 @@ var app = express();
 
 app.configure(function(){
 
+	//rather not telegraph what we're usingg
 	app.use(function (req, res, next) {
         res.removeHeader("X-Powered-By");
         next();
     }); 
 	
 	
-  app.set('port', process.env.PORT || 8080);
+	if(process.env.NODE_ENV == 'production'){
+		app.set('port', 8080);
+	}else{
+		app.set('port', 8080);
+	}
+	
+  //app.set('port', process.env.PORT || 8080);
+  
+  
   app.set('views', __dirname + '/views');
   app.set('view engine', 'ejs');
   app.use(express.favicon());
@@ -31,6 +41,8 @@ app.configure(function(){
   app.use(express.static(path.join(__dirname, 'public')));
   app.use(app.router);
  
+ 
+  
   
 });
 
@@ -40,12 +52,14 @@ app.configure('development', function(){
 
 
 //the four pages
+
 app.get('/', 			routes.index);
-app.get('/faq', 		routes.faq);
+app.get('/services', 	routes.services);
 app.get('/about', 		routes.about);
 app.get('/blog', 		routes.blog);
 app.get('/contact', 	routes.contact);
 app.get('*', 			routes.error);
+
 
 http.createServer(app).listen(app.get('port'), function(){
   console.log("Express server listening on port " + app.get('port'));

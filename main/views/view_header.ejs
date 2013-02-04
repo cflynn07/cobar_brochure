@@ -16,7 +16,7 @@
 
   <!-- CSS Style -->
   <link rel="stylesheet" href="/css/style.css"> 
-  
+
   <!-- Color Skins -->
   <link rel="stylesheet" href="/css/skins/orange.css" name="skins"> 
   
@@ -27,44 +27,58 @@
   <!-- Small Icons -->
   <link rel="stylesheet" href="/css/icons.css">  
   
+  
+  
+  
+  
+<% if(false){ %> 
   <!-- Start JavaScript -->
   
-    <script src="/js/jquery-1.7.2.min.js"></script> <!-- jQuery library -->
-    <script src="/js/jquery.easing.1.3.min.js"></script> <!-- jQuery Easing --> 
-    <script src="/js/jquery-ui.min.js"></script> <!-- jQuery Ui --> 
-    <script src="/js/jquery.cookie.js"></script> <!-- jQuery cookie --> 
-    <script src="/js/jquery.uniform.min.js"></script> <!-- jQuery Uniform -->
-    <script src="/js/ddsmoothmenu.js"></script> <!-- Nav Menu ddsmoothmenu -->
-    <script src="/js/jquery.flexslider.js"></script> <!-- Flex Slider  -->
-    <script src="/js/jquery.eislideshow.js"></script> <!-- Elastic Slider  -->
-    <script src="/js/jquery.iconmenu.js"></script> <!-- Sliding Text and Icon Menu Style  -->
-    <script src="/js/colortip.js"></script> <!-- Colortip Tooltip Plugin  -->
-    <script src="/js/tytabs.js"></script> <!-- jQuery Plugin tytabs  -->
-    <script src="/js/carousel.js"></script> <!-- jQuery Carousel  -->
-    <script src="/js/jquery.prettyPhoto.js"></script> <!-- jQuery Prettyphoto  -->
-    <script src="/js/jquery.isotope.min.js"></script> <!-- Isotope Filtering  -->
-    <script src="/js/selectnav.js"></script> <!-- Responsive Navigation Menu by SelectNav -->
-    <script src="/js/jquery.ui.totop.js"></script> <!-- UItoTop plugin  -->
-    <script src="/js/custom.js"></script> <!-- Custom Js file for javascript in html -->
-    <script src="/js/jquery.tweet.js"></script> <!-- jQuery Tweets -->
-    <script src="/js/jflickrfeed.min.js"></script> <!-- jQuery Flickr -->
-    <script src="/js/twitter-flickr-options.js"></script> <!-- jQuery Tweets Options -->
-    <script src="/js/styleswitch.js"></script> <!-- Style Switcher -->
+    <script src="/js/libs/jquery-1.7.2.min.js"></script> <!-- jQuery library -->
+    <script src="/js/libs/jquery.easing.1.3.min.js"></script> <!-- jQuery Easing --> 
+    <script src="/js/libs/jquery-ui.min.js"></script> <!-- jQuery Ui --> 
+    <script src="/js/libs/jquery.cookie.js"></script> <!-- jQuery cookie --> 
+    <script src="/js/libs/jquery.uniform.min.js"></script> <!-- jQuery Uniform -->
+    <script src="/js/libs/ddsmoothmenu.js"></script> <!-- Nav Menu ddsmoothmenu -->
+    <script src="/js/libs/jquery.flexslider.js"></script> <!-- Flex Slider  -->
+    <script src="/js/libs/jquery.eislideshow.js"></script> <!-- Elastic Slider  -->
+    <script src="/js/libs/jquery.iconmenu.js"></script> <!-- Sliding Text and Icon Menu Style  -->
+    <script src="/js/libs/colortip.js"></script> <!-- Colortip Tooltip Plugin  -->
+    <script src="/js/libs/tytabs.js"></script> <!-- jQuery Plugin tytabs  -->
+    <script src="/js/libs/carousel.js"></script> <!-- jQuery Carousel  -->
+    <script src="/js/libs/jquery.prettyPhoto.js"></script> <!-- jQuery Prettyphoto  -->
+    <script src="/js/libs/jquery.isotope.min.js"></script> <!-- Isotope Filtering  -->
+    <script src="/js/libs/selectnav.js"></script> <!-- Responsive Navigation Menu by SelectNav -->
+    <script src="/js/libs/jquery.ui.totop.js"></script> <!-- UItoTop plugin  -->
+    <script src="/js/libs/custom.js"></script> <!-- Custom Js file for javascript in html -->
+    <script src="/js/libs/jquery.tweet.js"></script> <!-- jQuery Tweets -->
+    <script src="/js/libs/jflickrfeed.min.js"></script> <!-- jQuery Flickr -->
+    <script src="/js/libs/twitter-flickr-options.js"></script> <!-- jQuery Tweets Options -->
+    <script src="/js/libs/styleswitch.js"></script> <!-- Style Switcher -->
   
   <!-- End JavaScript -->
 
   <!--[if lt IE 9]>
-      <script src="/js/html5.js"></script>
+      <script src="/js/libs/html5.js"></script>
   <![endif]-->
+<% } %>
+
+<script data-main="js/app" src="js/libs/require.js"></script>
+
 
   <!-- Favicons -->
-  <link rel="shortcut icon" href="/images/favicon/favicon.ico">
-  <link rel="apple-touch-icon" href="/images/favicon/apple-touch-icon.png">
-  <link rel="apple-touch-icon" sizes="72x72" href="/images/favicon/apple-touch-icon-72x72.png">
-  <link rel="apple-touch-icon" sizes="114x114" href="/images/favicon/apple-touch-icon-114x114.png">
+  
+  <% if(false){ %>
+  
+	  <link rel="shortcut icon" href="/images/favicon/favicon.ico">
+	  <link rel="apple-touch-icon" href="/images/favicon/apple-touch-icon.png">
+	  <link rel="apple-touch-icon" sizes="72x72" href="/images/favicon/apple-touch-icon-72x72.png">
+	  <link rel="apple-touch-icon" sizes="114x114" href="/images/favicon/apple-touch-icon-114x114.png">
+  
+  <% } %>
 
 </head>
-<body>
+<body class="diagmonds">
 
   <div id="wrap" class="boxed">
 
@@ -84,17 +98,7 @@
           <ul id="nav">
             <li><a href="/">Home</a>
             </li>
-            <li><a href="javascript:void(0);">Services</a>
-              <ul>
-                <li><a href="/faq">FAQ</a></li>
-                
-               <% if(false){ %>
-	                <li><a href="features.html">Features</a></li>
-	                <li><a href="process.html">Process</a></li>
-	                <li><a href="FAQ.html">FAQ</a></li>
-               <% } %>
-               
-              </ul>
+            <li><a href="/services">Services</a>
             </li>
             <li><a href="/about">About Us</a>
             </li>
@@ -110,3 +114,5 @@
       
     </div><!-- End Container -->
   </header><!-- <<< End Header >>> -->
+  
+  <div data-role="main">
