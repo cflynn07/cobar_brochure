@@ -52,6 +52,8 @@
 
   app.get('/contact', routes.contact);
 
+  app.post('/contact', routes.post_contact);
+
   app.get('*', routes.error);
 
   http.createServer(app).listen(app.get('port'), function(x) {

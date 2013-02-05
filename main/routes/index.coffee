@@ -204,6 +204,24 @@ exports.blog = (req, res) ->
 
 exports.contact = (req, res) ->
   render_views(req, res, 'view_contact')
+  
+  
+exports.post_contact = (req, res) ->
+    
+  nodemailer    = require 'nodemailer'
+  smtpTransport = nodemailer.createTransport 'SMTP', 
+    service: 'Gmail'
+    auth: 
+      user: 'casey_flynn@cobarsystems.com'
+      pass: 'nemesisargo'
+  
+  smtpTransport.sendMail 
+    from:     'no-reply@cobarsystems.com'
+    to:       'casey_flynn@cobarsystems.com, johann_barlach@cobarsystems.com'
+    subject:  'Cobar Systems Contact Form'
+    text:     JSON.stringify req.body
+    
+  res.send()
 
 exports.error = (req, res) ->
   render_views(req, res, 'view_404', {}, 404)

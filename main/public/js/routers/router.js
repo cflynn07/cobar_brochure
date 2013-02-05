@@ -31,6 +31,32 @@ define(['backbone', 'jquery', 'modules/log', 'views/wrapper', 'flexslider', 'col
 			
 			log('contact');
 			
+			
+			
+			$('form#ajax-contact-form').bind('submit', function(e){
+				e.preventDefault();
+				
+				var _this = this;
+				
+				
+				jQuery.post(
+					window.location.href, 
+					jQuery(_this).serialize(),
+					function success(data){
+						
+						$(_this).fadeOut('slow', function(){
+							
+							jQuery(_this).html('<br/><br/>Thanks for contacting us! We will reply to your inquiry ASAP').fadeIn('fast');
+							
+						});
+						
+					}
+				);
+				
+				
+			});
+			
+			
 		},
 		faq: function(){
 			log('faq');
