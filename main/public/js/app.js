@@ -54,7 +54,7 @@ require(['routers/router', 'jquery', 'tweet'], function(Router, $){
 				
 		jQuery(".tweet").tweet({
 			join_text: false,
-			username: "clubbingowl", // Change username here
+			username: "cobarsystems", // Change username here
 			avatar_size: false, // you can active avatar
 			count: 2, // number of tweets
 			seconds_ago_text: "about %d seconds ago",
