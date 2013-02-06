@@ -1,4 +1,4 @@
-define(['jquery', 'history', 'modules/log'], function($, History, log){
+define(['jquery', 'history', 'modules/log', 'modules/ganalytics'], function($, History, log, gaq){
 	
 	var target = $('div[data-role="main"]');
 
@@ -13,21 +13,14 @@ define(['jquery', 'history', 'modules/log'], function($, History, log){
 		
 		if(!internal)
 			return false;
-			
-		var title = document.title;
-		History.pushState({}, title, url);
 		
-		return true;
-	};
-	
-	// Hook into State Changes
-	$(window).bind('statechange',function(){
-														
-		// Prepare Variables
-		var
-			State 	= History.getState(),
-			url 	= State.url;
-					
+		if(window.location.pathname == url || window.location.href == url)
+			return true;
+		
+		target.css({
+			opacity: 0.3
+		});
+
 		// Ajax Request the Traditional Page
 		$.ajax({
 			url: 		url,
@@ -39,14 +32,23 @@ define(['jquery', 'history', 'modules/log'], function($, History, log){
 								
 				target.slideUp('slow', function(){
 					
+					target.css({
+						opacity: 1
+					});
 					target.html(data);
+				
 					target.slideDown('slow', function(){
+						
+						var title = document.title;
+						History.pushState({}, title, url);
+						
+						_gaq.push(['_setAccount', 'UA-36400090-1']);
+					//	Backbone.history.loadUrl();
 						
 					});
 					
 				});
-				
-				Backbone.history.loadUrl();
+								
 				return true;
 				
 			},
@@ -55,9 +57,25 @@ define(['jquery', 'history', 'modules/log'], function($, History, log){
 				return false;
 			}
 		});	
-					
-	});
+		
+		
+		
+		
+		return true;
+	};
 	
+	// Hook into State Changes
+	$(window).bind('statechange',function(){
+		
+		return;
+		
+		var
+			State 	= History.getState(),
+			url 	= State.url;
+		
+		Ajaxify(url);
+		
+	});
 	
 	return Ajaxify;
 	
