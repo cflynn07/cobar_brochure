@@ -8,6 +8,10 @@
   "dependencies": {
     "express": 			"3.0.6",
     "ejs": 				"*",
-    "html-minifier": 	"*"
+    "html-minifier": 	"*",
+    "coffee-script":	"*",
+    "requirejs":		"*",
+    "async":			"*",
+    "nodemailer": "*"
   }
 }

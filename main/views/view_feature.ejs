@@ -1,0 +1,133 @@
+<%
+	var feature = features[features_index];
+	
+	var siblings = function(obj, key) {
+	  	var keys 	= Object.keys(obj),
+	  			i 	= keys.indexOf(key);
+		
+		var sibs = {
+			left: '',
+			right: ''
+		};
+		
+		if(i !== -1){
+			
+			if(i === 0){
+				
+				sibs.left 	= keys[keys.length - 1];
+				sibs.right	= keys[1]
+				
+			}else if(i === (keys.length - 1)){
+				
+				sibs.left 	= keys[i - 1];
+				sibs.right	= keys[0];
+				
+			}else{
+				
+				sibs.left 	= keys[i - 1];
+				sibs.right 	= keys[i + 1];
+				
+			}
+			
+			return sibs;
+			
+		}else{
+			
+			return sibs;
+	
+			
+		}	  
+	};
+	
+	var sibs = siblings(features, features_index);
+	
+%>
+<div class="container gallery clearfix">
+  
+   <div class="sixteen columns"> <h1 class="page-title">Features -&nbsp;<span class="color2"><%= feature.title %></span><span class="line"></span></h1>
+   </div><!-- Page Title -->
+   
+   <div class="sixteen columns top-2">
+   	
+   		<h2 class="title">
+   			
+   			<a style="float:right;margin-left:5px;" href="/features/<%= sibs.right %>" class="next-project"></a> 
+   			<a style="float:right;margin-left:5px;" href="/features/<%= sibs.right %>"><span class="gray2"><%= features[sibs.right].title %></span></a>
+   			
+   			<a style="float:left;margin-right:5px;" href="/features/<%= sibs.left %>" data="Previous Feature" class="prev-project"></a>
+   			<a style="float:left;margin-right:5px;" href="/features/<%= sibs.left %>"><span class="gray2"><%= features[sibs.left].title %></span></a>
+   		
+   			<div class="clearfix"></div>
+   		
+   		</h2>
+   
+   </div><!-- Project Title -->
+   
+   
+   
+   
+   
+   <!-- Start Project Slider -->
+   <div class="twelve columns top bottom">
+     <div class="slider-project">
+      <div class="flex-container">
+
+		<% if(typeof feature.additional_images !== 'undefined' && feature.additional_images !== false){ %>
+		
+			<div class="flexslider2" style="overflow: hidden;">
+				<ul class="slides" style="-webkit-transition: 0s; width: 800%; -webkit-transform: translate3d(-1400px, 0, 0);">
+				
+				<li class="clone" style="width: 700px; float: left; display: block;">
+		            <div style="text-align:center;">
+						<img style="border:0px solid #CCC;" src="/images/features/<%= feature.image %>_large.png">
+		            </div><!-- hover effect -->
+				</li>
+				
+				<% for(var i in feature.additional_images ){ %>
+				<% var additional_image = feature.additional_images[i]; %>
+				
+				<li class="clone" style="width: 700px; float: left; display: block;">
+		            <div style="text-align:center;">
+						<img style="border:0px solid #CCC;" src="/images/features/<%= additional_image %>_large.png">
+		            </div><!-- hover effect -->
+				</li>
+				
+				<% } %>
+				  
+				</ul>
+			</div>
+		
+		<% }else{ %>
+			
+			<div style="text-align:center;">
+				<img style="border:0px solid #CCC;" src="/images/features/<%= feature.image %>_large.png">
+				<span class="hover-effect big zoom"></span>
+			</div>
+			
+		<% } %>
+		
+      </div>
+     </div><!-- End slider-project -->  
+   </div>
+   <!-- End -->
+   
+   
+   
+   
+   
+   <!-- Start Project Details -->
+   <div class="four columns  bottom">
+   
+     <h2 class="title top-5  bottom-2">About Feature <span class="line"></span></h2>
+     
+     <div class="about-project bottom">
+       <p><%= feature.desc %></p>
+     </div>
+     
+     <div class="clearfix"></div>
+     
+      <a href="/features" class="button medium color">All Features</a>
+   
+   </div>
+   <!-- End Project Details -->
+  </div><!-- <<< End Container >>> -->

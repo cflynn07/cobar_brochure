@@ -8,12 +8,16 @@ define(['backbone', 'jquery', 'modules/log', 'modules/ajaxify'], function(Backbo
 		},
 		events: {
 			'click a:not(.no-ajaxify)': 'click_ajaxify',
-			'click ul#nav li a': 		'click_nav'
+			'click ul#nav li a': 		'click_nav',
+			'click div.logo a':			'click_logo'
+		},
+		click_logo: function(e){
+			
+			$('ul#nav li a').removeClass('active');
+			
 		},
 		click_nav: function(e){
-			
-			console.log('click nav');
-			
+						
 			$('ul#nav li a').removeClass('active');
 			var a = $(e.currentTarget);
 			a.addClass('active');
