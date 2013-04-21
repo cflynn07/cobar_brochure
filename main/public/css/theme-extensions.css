@@ -1,0 +1,6 @@
+.widget-themis {
+	border-left: 1px solid lightgrey;
+	border-bottom: 1px solid lightgrey;
+	border-right: 0px;
+	box-shadow: 4px 4px 0 0 rgba(0,0,0,.35);
+}
