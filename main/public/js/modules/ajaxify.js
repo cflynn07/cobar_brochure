@@ -1,6 +1,6 @@
 define(['jquery', 'history', 'modules/log', 'modules/ganalytics'], function($, History, log, gaq){
 
-	var target = $('div[data-role="main"] > div.container');
+	var target = $('div[data-role="main"]');
 
 	var Ajaxify = function(url){
 

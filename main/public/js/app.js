@@ -1,5 +1,6 @@
 requirejs.config({
 	baseUrl: '/js/',
+  urlArgs: 'bust=v2',
 	paths: {
 		jquery: 		'libs/jquery',
 		underscore: 	'libs/underscore',
@@ -51,7 +52,7 @@ requirejs.config({
 require(['routers/router', 'jquery', 'tweet'], function(Router, $){
 
 	$(function(){
-				
+
 		jQuery(".tweet").tweet({
 			join_text: false,
 			username: "cobarsystems", // Change username here
@@ -66,11 +67,11 @@ require(['routers/router', 'jquery', 'tweet'], function(Router, $){
 			days_ago_text: "about %d days ago",
 			view_text: "view tweet on twitter"
 		});
-				
-				
+
+
 		//and we're off
 		new Router();
-		
+
 	});
-	
+
 });
